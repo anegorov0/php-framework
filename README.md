@@ -1,61 +1,84 @@
-🔧 Первый запуск
-git clone <repo_url>
-cd my-framework
+## Run project
+
+```bash
 docker compose up -d --build
+```
 
-Открыть в браузере:
+Open in browser:
 
+```text
 http://localhost:8081
+```
 
-🛑 Остановка проекта
+---
+
+## Stop / Restart
+
+Stop containers:
+
+```bash
 docker compose down
+```
 
-🔁 Перезапуск контейнеров
+Restart containers:
+
+```bash
 docker compose restart
-📜 Просмотр логов
+```
 
-Все сервисы:
+---
 
+## Logs
+
+All services:
+
+```bash
 docker compose logs -f
+```
 
-Только PHP:
+PHP:
 
+```bash
 docker compose logs -f php
+```
 
-Только Nginx:
+Nginx:
 
+```bash
 docker compose logs -f nginx
+```
 
-Только база:
+Database:
 
+```bash
 docker compose logs -f db
-🐘 Вход в контейнер PHP
+```
+
+---
+
+## Enter PHP container
+
+```bash
 docker compose exec php bash
-🗄 Подключение к MySQL
-С хоста:
+```
+
+---
+
+## MySQL connection
+
+### From host
+
+```text
 Host: localhost
 Port: 3307
 Database: framework
 User: user
 Password: password
-Из PHP (внутри Docker):
+```
+
+### From PHP container (inside Docker)
+
+```env
 DB_HOST=db
 DB_PORT=3306
-🧹 Полная очистка (включая базу)
-
-⚠ Удалит данные MySQL
-
-docker compose down -v
-📦 Composer
-
-Установка зависимостей:
-
-docker compose exec php composer install
-
-Добавить пакет:
-
-docker compose exec php composer require vendor/package
-🐛 Xdebug
-
-Порт: 9003
-Client host: host.docker.internal
+```
