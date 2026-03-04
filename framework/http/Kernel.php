@@ -23,9 +23,10 @@ class Kernel
                 return new Response($content);
             });
         });
+
         $routeInfo = $dispatcher->dispatch(
-            $request->serverParams["REQUEST_METHOD"],
-            $request->serverParams["REQUEST_URI"],
+            $request->getMethod(),
+            $request->getPath(),
         );
 
         [$status, $handler, $vars] = $routeInfo;
